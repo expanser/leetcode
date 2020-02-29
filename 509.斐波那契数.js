@@ -11,7 +11,12 @@
  */
 var fib = function(N) {
   if (!N) return 0
-  if (N == 1 || N == 2) return 1
-  return fib(N - 1) + fib(N - 2)
+  let arr = [1, 1]
+  for (let i = 0; i < N - 2; i++) {
+    let k = arr[0]
+    arr[0] = arr[0] + arr[1]
+    arr[1] = k
+  }
+  return arr[0]
 }
 // @lc code=end
