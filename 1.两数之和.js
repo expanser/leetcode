@@ -11,10 +11,13 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-  for (let i = 0; i < nums.length; i++) {
-    let index = nums.indexOf(target - nums[i])
-    if (index > -1 && index !== i) {
-      return [i, index]
+  let obj = {}
+  for (let index = 0; index < nums.length; index++) {
+    num = nums[index]
+    if (num in obj) {
+      return [obj[num], index]
+    } else {
+      obj[target - num] = index
     }
   }
 }
